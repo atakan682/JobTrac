@@ -10,5 +10,7 @@ data class JobItem(
     val location: String,
     val description: String,
     val remote: Boolean,
-    val url: String
+    val url: String,
+    val salary: String? = null,        // ✅ Added
+    val status: String? = "Applied"    // ✅ Added
 )
