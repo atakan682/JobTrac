@@ -6,6 +6,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.activity.viewModels
 import com.example.jobtrac.viewmodel.JobViewModel
 import com.example.jobtrac.model.SubmittedForm
+import com.example.jobtrac.repo.FormRepository
+
+
 
 
 class FormActivity : AppCompatActivity() {
@@ -25,7 +28,8 @@ class FormActivity : AppCompatActivity() {
             val email = emailInput.text.toString().trim()
             val notes = notesInput.text.toString().trim()
             val form = SubmittedForm(name, email, notes)
-            viewModel.addForm(form)
+
+            FormRepository.submittedForms.add(form)
 
 
             // You can save this info to ViewModel, API, or local database
