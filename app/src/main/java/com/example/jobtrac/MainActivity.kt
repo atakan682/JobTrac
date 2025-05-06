@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.jobtrac.viewmodel.JobViewModel
 import com.example.jobtrac.model.JobItem
 import com.example.jobtrac.ui.JobAdapter
+import android.content.Intent
+
 
 class MainActivity : AppCompatActivity() {
     private val viewModel: JobViewModel by viewModels()
@@ -30,5 +32,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         viewModel.fetchJobs()
+
+        findViewById<com.google.android.material.floatingactionbutton.FloatingActionButton>(R.id.fabAddApplication).setOnClickListener {
+            val intent = Intent(this, FormActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 }

@@ -28,6 +28,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".JobDetailActivity" />
+        <activity android:name=".FormActivity" />
     </application>
+
+
 
 </manifest>
