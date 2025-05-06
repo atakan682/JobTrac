@@ -9,6 +9,8 @@ import com.example.jobtrac.viewmodel.JobViewModel
 import com.example.jobtrac.model.JobItem
 import com.example.jobtrac.ui.JobAdapter
 import android.content.Intent
+import android.widget.Button
+
 
 
 class MainActivity : AppCompatActivity() {
@@ -37,6 +39,11 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, FormActivity::class.java)
             startActivity(intent)
         }
+
+        findViewById<Button>(R.id.btnViewSubmissions).setOnClickListener {
+            startActivity(Intent(this, SubmissionListActivity::class.java))
+        }
+
 
     }
 }

@@ -7,12 +7,23 @@ import kotlinx.coroutines.launch
 import android.util.Log
 import com.example.jobtrac.model.JobItem
 import com.example.jobtrac.network.RetrofitClient
+import com.example.jobtrac.model.SubmittedForm
+
 
 
 
 class JobViewModel : ViewModel() {
     private val _jobs = MutableLiveData<List<JobItem>>()
     val jobs: LiveData<List<JobItem>> = _jobs
+
+    val submittedForms = MutableLiveData<MutableList<SubmittedForm>>(mutableListOf())
+
+    fun addForm(form: SubmittedForm) {
+        val current = submittedForms.value ?: mutableListOf()
+        current.add(form)
+        submittedForms.value = current
+    }
+
 
     fun fetchJobs() {
         viewModelScope.launch {

@@ -3,11 +3,17 @@ package com.example.jobtrac
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.activity.viewModels
+import com.example.jobtrac.viewmodel.JobViewModel
+import com.example.jobtrac.model.SubmittedForm
+
 
 class FormActivity : AppCompatActivity() {
+    private val viewModel: JobViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_form)
+
 
         val nameInput = findViewById<EditText>(R.id.inputName)
         val emailInput = findViewById<EditText>(R.id.inputEmail)
@@ -18,6 +24,9 @@ class FormActivity : AppCompatActivity() {
             val name = nameInput.text.toString().trim()
             val email = emailInput.text.toString().trim()
             val notes = notesInput.text.toString().trim()
+            val form = SubmittedForm(name, email, notes)
+            viewModel.addForm(form)
+
 
             // You can save this info to ViewModel, API, or local database
             Toast.makeText(this, "Application submitted!", Toast.LENGTH_SHORT).show()

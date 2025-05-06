@@ -29,6 +29,7 @@
         </activity>
         <activity android:name=".JobDetailActivity" />
         <activity android:name=".FormActivity" />
+        <activity android:name=".SubmissionListActivity" />
     </application>
 
 
